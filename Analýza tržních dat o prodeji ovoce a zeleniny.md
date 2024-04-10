@@ -15,40 +15,40 @@
    - SQL dotaz: `SELECT SUM(mnozstvi * cena) AS obrat FROM ovoce UNION ALL SELECT SUM(mnozstvi * cena) AS obrat FROM zelenina;`
 
 	Odpověď:
- %%
+```
 Pro výpočet celkového obratu za prodej ovoce a zeleniny musíme sečíst všechny prodeje ovoce a zeleniny. To provedeme pomocí SQL dotazu:
 SELECT SUM(mnozstvi * cena) AS obrat FROM ovoce UNION ALL SELECT SUM(mnozstvi * cena) AS obrat FROM zelenina;
- %%
+```
 
 
-2. Které ovoce se prodávalo nejčastěji?
+3. Které ovoce se prodávalo nejčastěji?
    - SQL dotaz: `SELECT nazev, SUM(mnozstvi) AS celkove_mnozstvi FROM ovoce GROUP BY nazev ORDER BY celkove_mnozstvi DESC LIMIT 1;`
 	Odpověď:
- %%
+```
 Pro zjištění nejprodávanějšího ovoce potřebujeme spočítat, které ovoce bylo celkově prodáno nejvíce. SQL dotaz k tomu vypadá takto:
 SELECT nazev, SUM(mnozstvi) AS celkove_mnozstvi FROM ovoce GROUP BY nazev ORDER BY celkove_mnozstvi DESC LIMIT 1;
- %%
+```
 
 
-3. Kolik různých druhů zeleniny se prodávalo za poslední měsíc?
+4. Kolik různých druhů zeleniny se prodávalo za poslední měsíc?
    - SQL dotaz: `SELECT COUNT(DISTINCT nazev) AS pocet_druhu_zeleniny FROM zelenina WHERE datum >= DATE('now', '-1 month');`
 	Odpověď:
- %%
+```
  Chceme zjistit počet různých druhů zeleniny, které byly prodávány za poslední měsíc. To provedeme pomocí SQL dotazu:
  SELECT COUNT(DISTINCT nazev) AS pocet_druhu_zeleniny FROM zelenina WHERE datum >= DATE('now', '-1 month');
- %%
+```
 
 
-4. Jaká byla průměrná cena za kilogram ovoce za poslední tři měsíce?
+5. Jaká byla průměrná cena za kilogram ovoce za poslední tři měsíce?
    - SQL dotaz: `SELECT AVG(cena) AS prumerna_cena_za_kg FROM ovoce WHERE datum >= DATE('now', '-3 month');`
 	Odpověď:
- %%
+```
  Průměrná cena za kilogram ovoce za poslední tři měsíce se dá získat pomocí následujícího SQL dotazu:
  SELECT AVG(cena) AS prumerna_cena_za_kg FROM ovoce WHERE datum >= DATE('now', '-3 month');
- %%
+```
 
 
-5. Který zákazník utratil nejvíce peněz za nákup ovoce a zeleniny?
+6. Který zákazník utratil nejvíce peněz za nákup ovoce a zeleniny?
    - SQL dotaz: 
      ```
      SELECT zakaznik, SUM(mnozstvi * cena) AS celkova_utrata 
@@ -57,13 +57,13 @@ SELECT nazev, SUM(mnozstvi) AS celkove_mnozstvi FROM ovoce GROUP BY nazev ORDER 
      ORDER BY celkova_utrata DESC LIMIT 1;
      ```
 	Odpověď:
- %%
+```
  Jméno zákazníka s největší utratou za nákup ovoce a zeleniny se dá zjistit pomocí následujícího SQL dotazu:
  SELECT zakaznik, SUM(mnozstvi * cena) AS celkova_utrata 
 FROM (SELECT zakaznik, mnozstvi, cena FROM ovoce UNION ALL SELECT zakaznik, mnozstvi, cena FROM zelenina) AS obchod 
 GROUP BY zakaznik 
 ORDER BY celkova_utrata DESC LIMIT 1;
- %%
+```
 
 
 **Code**
