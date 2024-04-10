@@ -1,14 +1,20 @@
 **Co má žák udělat:**
 Úkolem bude analyzovat databázi tržních dat, která obsahuje informace o prodeji ovoce a zeleniny. Žák bude muset formulovat SQL dotazy k vyřešení specifických úkolů.
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
 **Podmínky zadání:**
 1. Dostupná bude databáze s názvem `trziste.db`, která obsahuje tabulky `ovoce` a `zelenina` se specifickými atributy.
 2. Každá tabulka má identifikátor položky, název, množství a cenu.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Postup:**
 1. Otevři databázi `trziste.db` ve svém SQL editoru.
 2. Zformuluj SQL dotazy pro splnění úkolů uvedených níže.
 3. Pro každý dotaz zapiš odpověď a případně zdůvodnění v textovém souboru.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Otázky:**
 1. Jaký je celkový obrat za prodej ovoce a zeleniny?
@@ -65,6 +71,7 @@ GROUP BY zakaznik
 ORDER BY celkova_utrata DESC LIMIT 1;
 ```
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Code**
  ```
@@ -101,5 +108,8 @@ INSERT INTO zelenina (nazev, mnozstvi, cena, datum, zakaznik) VALUES
 ('Cibule', 10, 15, '2024-04-03', 'Pavel Dvořák');
 
  ```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
 **Výstup:**
 Tvým výstupem bude textový soubor obsahující odpovědi na všechny otázky. Každá odpověď bude doprovázena SQL dotazem, který jsi použil, a samotnou odpovědí.
